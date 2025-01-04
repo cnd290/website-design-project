@@ -1,0 +1,805 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+/* :root 表示 <html> 元素 */
+/* :root{
+    --color:#6C5CE7;
+} */
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* text-transform:capitalize; */
+    /* transition: all .2s linear; */
+    text-decoration: none;
+}
+
+html{
+    font-size: 62.5%;  /*整體字大小 */
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.container{
+    width: 100%;
+    /* min-height: 100vh;
+    padding-left: 3%;
+    padding-right: 3%; */
+    box-sizing: border-box;
+    overflow: hidden; /*自動隱藏超出的文字或圖片*/
+}
+
+/*topbar(header)部分 ----------------------------------------------------------------------*/
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 1rem 2rem;  /* 上下內距都是 1rem 而左右內距都是 2rem */
+
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color: rgb(150, 139, 136);
+}
+
+.header .logo i{   /* icon跟字 */
+    padding: 0 .5rem;
+}
+
+.header .navbar ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header .navbar ul li{
+    margin: 0 1rem;  /* 上邊下邊 左邊右邊  home about...彼此之間的距離*/
+}
+
+.header .navbar ul li a{
+    font-size: 1.8rem;
+    color: rgb(150, 139, 136);
+
+    border: 2px solid transparent;
+    padding: 7px 10px;
+    border-radius: 9px;
+}
+
+.header .navbar ul li a:hover{
+    color: rgb(172, 109, 109);
+
+    border: 2px solid #fff;
+    transition: 0.5s;
+}
+
+.header .fa-bars{
+    color: #fff;
+    cursor: pointer;
+    font-size: 3rem;
+    display: none;
+}
+
+
+/*每個頁面都用到的button heading(上引號下引號那個)*/
+.heading{
+    margin:2rem;
+    padding-top: 6rem;
+
+    /* display: inline-block; */   /*...加這個的功用比較不知道*/
+    /* position: relative;     /*https://w3c.hexschool.com/blog/5667df85*/
+
+    font-size: 5.5rem;
+    color:rgb(197, 132, 132); 
+    letter-spacing: .2rem;
+    font-family: 'Caveat', cursive;
+
+}
+
+/*
+.heading::before, .heading::after{
+    content: '';
+    position: absolute;
+    height: 2.5rem;                     側邊那槓長度
+    width: 2.5rem;                      上面那槓長度
+    border-top:.4rem solid rgb(197, 132, 132);   上面那槓 
+    border-left:.4rem solid rgb(197, 132, 132);  側邊那槓 
+}
+  
+.heading::before{
+    top: 5.8rem; 
+    left: -2rem;    
+}
+  
+.heading::after{
+    bottom: -.5rem; 
+    right: -2rem;
+    transform: rotate(180deg);
+} */
+
+.btn{
+    height: 3.5rem;
+    width: 15rem;
+    background: rgb(197, 132, 132);
+    color:rgb(255, 255, 255);
+    
+    cursor: pointer;
+
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    font-weight: 400;
+    box-shadow: 0 .9rem .9rem #dfd5d5;
+
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.btn:hover{
+    /* background: #b8aaaa; */
+    opacity: .7;
+    letter-spacing: .1rem;
+    transition: .9s
+}
+
+
+/* 圖片顏色E2D7D4 #e6ddda*/
+/* home頁面 ------------------------------------------------------------------------*/
+.home{
+    min-height: 100vh;
+    width: 100%;
+    background: #e6ddda;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow : column;
+    /*下面寫的是為了在螢幕縮小的情況 字可以在中間且離左右2rem距離*/
+    text-align: center;
+    padding: 0 2rem;
+    /* position: relative; */
+    overflow: hidden;     /*為了不讓此頁面的東西超出範圍 造成滾軸可以往下拉*/
+}
+
+.home .banner{
+    color: #ffffff;
+    font-size: 4.3rem;
+    text-shadow: 0 .4rem .5rem #a79a9a   /* 向右距離 向下距離 模糊程度 顏色*/
+}
+
+.home .slogan{
+    color: rgb(172, 109, 109);
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-top: .7rem;
+}
+
+.home button{
+    height: 4.5rem;
+    width: 18rem;
+    background: #c5bcb9;
+    color:rgb(136, 125, 125);
+    
+    cursor: pointer;
+
+    margin-top: 3.8rem;
+    font-size: 2rem;
+    font-weight: 400;
+    box-shadow: 0 .9rem .9rem #948888;
+
+    border: 0;
+    outline: none;
+    /* background: linear-gradient(to right, #cfb0b6, #b1979c); */
+    border-radius: 30px;
+}
+
+.home button:hover{
+    background: #fafafa;
+    letter-spacing: .15rem;
+    transition: .9s
+}
+
+.home .wave{
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;
+    
+    height:10rem;
+    width: 100%;
+    
+    background: url(../images/wave.png);
+    background-size: 100rem 11rem;   /* 此張圖片的寬高*/
+    background-repeat: repeat-x;     /* 讓此張圖片不斷在x軸方向延伸下去 */
+    animation:waves 10s linear infinite;  /* 執行動畫 waves，總時間為 10 秒，執行無數次 */
+}
+  
+.home .wave2{
+    animation-direction: reverse; /* 讓動畫方向跟其他wave反向 */
+    opacity: .3;
+}
+
+.home .wave3{
+    animation-duration: 4s;   /* 每四秒就會重頭開始一次他的動畫 */
+    opacity: .6;
+}
+
+@keyframes waves{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 100rem;
+    }
+}
+
+.home .fa-cog{
+    position: absolute;
+    font-size: 30rem;
+    opacity: .5;
+    color: #fff;
+    animation: rotate 10s linear infinite;   /* 執行動畫 rotate，總時間為 10 秒，執行無數次 */
+}
+
+.home .nut1{
+    display:block;
+    /*調位置*/
+    top: 10%; 
+    left: -15rem;
+}
+
+.home .nut2{
+    display:block;
+    animation-direction: reverse; /* 動畫方向跟另一個nut反向 */
+    /*調位置*/
+    bottom: 23%;
+    right: -13rem;
+}
+
+@keyframes rotate{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+/* about頁面 --------------------------------------------------------------------*/
+
+.about{
+    min-height: 100vh;
+    width: 100%;
+    text-align: center; /*為了讓about us 置中*/
+    position: relative; /*https://w3c.hexschool.com/blog/5667df85*/
+    overflow: hidden;   /*為了不讓此頁面的東西超出範圍 造成滾軸可以往下拉*/
+}
+  
+.about .row{
+    margin-top: -20px;
+    display: flex;
+    align-items: center;  /*為了讓content 跟 image都垂直置中*/
+    justify-content: space-around;
+    padding:0 4rem;       /*content image 離左右的距離*/
+}
+
+
+
+.about .row .image img{
+    width: 50vw;
+}
+
+
+.about .row .content{
+    text-align: left;     /*為了讓content裡的字都置左*/
+    padding:0 3rem;
+
+}
+.about .row .content h3{
+    font-size: 3rem;
+    color: #ada09c ;
+}
+
+.about .row .content p{
+    font-size: 1.5rem;
+    color: #c4b8b4 ;
+    padding:1rem 0;  /*距離上面的距離*/
+}
+  
+
+
+.about::before, .about::after{ /*背景的兩顆球*/
+    content: '';
+    position: absolute;
+    z-index: -1;
+    opacity:.3;
+    border-radius: 50%;
+}
+  
+.about::before{
+    height:65rem;
+    width:65rem;
+    background:#e7dcdc;
+    /*調整位置*/
+    bottom:-43rem; 
+    left:-22rem;
+}
+  
+.about::after{
+    height:38rem;
+    width:38rem;
+    background:rgb(247, 231, 231);
+    /*調整位置*/
+    top:12rem; 
+    right:-15rem;
+}
+
+
+
+/* service頁面 ------------------------------------------------------------------------------*/
+.service{
+    width: 100%;
+    text-align: center; /*為了讓service 置中*/
+}
+
+.service .row{
+    margin-top: -20px;
+    display: flex;
+    align-items: center;  /*為了讓content 跟 image都垂直置中*/
+    justify-content: center;
+    padding:0 4rem;       /*content image 離左右的距離*/
+}
+
+.service .row .image img{
+    width:50vw;
+    height:55vh;
+}
+  
+.service .row .content{
+    text-align: left;
+    padding:0 3rem;
+}
+
+.service .row .content h3{
+    font-size: 3rem;
+    color:#ada09c;
+}
+  
+.service .row .content p{
+    font-size: 1.5rem;
+    color:#c4b8b4;
+    padding:1rem 0;
+}
+
+.service .btn{
+    margin-bottom: 4rem;
+}
+
+
+
+/*team頁面 ----------------------------------------------------------------------------*/
+.team{
+    min-height: 100vh;
+    width:100%;
+    text-align: center;  /*為了讓our team置中*/
+    background-color: rgb(245, 239, 239);;
+}
+  
+
+.team .heading{
+    color:rgb(184, 164, 164);
+}
+
+/* .team .heading::before, .team .heading::after{
+    border-color:rgb(184, 164, 164);
+} */
+  
+
+.team .row{
+    margin-top: 70px;
+    display: flex;
+    align-items: center;     /*垂直置中*/
+    justify-content: center; /*水平置中*/
+    flex-wrap: wrap;         /*允許換行 讓螢幕稍微縮小壓縮到card時 可以讓card換行*/
+}
+
+.team .row .card{
+    height:35rem;
+    width:25rem;
+    background:#fff;
+    text-align: center;         /*為了讓card上面字置中*/
+    margin:1rem 3rem 3rem 3rem; /*上右下左*/
+    /* position: relative; */
+    overflow: hidden;
+    box-shadow: 0 1rem 1rem rgb(207, 199, 199);
+
+    /* -webkit-box-reflect: below .2rem linear-gradient(transparent 70%, rgba(70, 58, 58, 0.267)); */
+}
+
+.team .row .card .image{
+    padding-top: 4rem;   /*image離card頂端的距離 */
+    z-index:20;
+}
+  
+.team .row .card .image img{
+    z-index:20;
+
+    height:14rem;
+    width:14rem;
+
+    border-radius: 50%;
+    border:.5rem solid #fff;
+    box-shadow: 0 0 .7rem rgb(167, 152, 152);
+    object-fit: cover;   /*讓內容契合在一個高度和寬度已確定的框*/
+}
+
+.team .row .card .info h3{
+    margin-top: 1rem;
+    font-size: 2rem;
+    color:rgb(148, 133, 133);
+}
+  
+.team .row .card .info span{
+    font-size: 1.8rem;
+    color:rgb(170, 106, 106);
+}
+
+.team .row .card .info .icons a{
+    margin-top: 3rem;
+    padding:0 1rem;
+    font-size: 2rem;
+    color:rgb(148, 133, 133);
+}
+
+.team .row .card .info .icons a:hover{
+    color:rgb(201, 183, 183);
+}
+
+
+
+/*contact頁面 --------------------------------------------------------------------------*/
+.contact{   
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;     /*為了讓contact us置中*/
+}
+
+.contact .row{
+    margin-top: -30px;
+    display: flex;
+    align-items: center;    
+    justify-content: space-between;
+    padding: 0 12rem;
+}
+
+.contact .row .image img{
+    height: 80vh;
+    width: 95%;
+}
+
+.contact .row .form-container{
+    width: 48%;
+    text-align: left; /*字整體置左*/
+}
+  
+.contact .row .form-container input, textarea{
+    outline: none;
+    border:none;
+    background: none;
+
+    height:3.5rem;              /*設定各個訊息欄的高度*/
+    border-radius: .5rem;
+    box-shadow: .2rem .2rem .5rem rgb(170, 154, 154);
+    padding:0 1rem;             /*控制框框內字跟框框的距離*/
+    margin:.7rem 0;             /*一排排輸入框跟彼此之間的距離*/
+    font-size: 1.6rem;
+}
+  
+
+
+.contact .row .form-container .inputBox{
+    white-space:nowrap; /*不換行(first name & last name那兩格)*/
+}
+
+.contact .row .form-container .inputBox input[type="text"]{
+    width: 50%;
+}
+
+.contact .row .form-container input[type="email"]{
+    width: 100%;
+}
+  
+.contact .row .form-container textarea{
+    width: 100%;
+    height:20rem;
+    padding:1rem; /*讓message字下來一點*/
+    resize: none;
+}
+
+.contact .row .form-container input[type="submit"]{
+    background-color: #b6abab;
+    color:#fff;
+    box-shadow: .3rem .4rem .7rem rgb(124, 110, 110);
+    
+    cursor: pointer;
+    height:4rem; 
+    width: 13rem;;
+}
+  
+.contact .row .form-container input[type="submit"]:hover{
+    opacity: .8;
+}
+
+  
+
+/*faq 頁面 ---------------------------------------------------------------------------*/
+
+.faq{
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;   /*讓faq字置中*/
+    padding:0 2rem;
+}
+  
+.faq .row{
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 2rem;
+}
+  
+.faq .row .image img{
+    height:70vh;
+    width: 50vw;                    /*調整圖片寬度可以影響到旁邊字的寬度  vw vh隨著網頁縮放而改變*/
+}
+
+.faq .row .accordion-container{
+    width: 42%;                     /*整個accordion-container(包括每一則title跟內容的那個容器)的寬度*/
+    text-align: left;               /*字置左*/
+}
+  
+/*header*/
+.faq .row .accordion-container .accordion .accordion-header{
+    background-color: #c2b3b3;
+    color: rgb(255, 255, 255);
+    margin:1.5rem 0;                /*每個header離上下的距離*/
+    box-shadow: .1rem .2rem .6rem rgb(124, 120, 120);
+    cursor: pointer;
+}
+
+.faq .row .accordion-container .accordion .accordion-header span{
+    display: inline-block;          /*為了要調span的高度寬度*/
+    text-align: center;             /*水平置中*/
+    
+    width:5rem;
+    height:4rem;                    /*讓accordion header被撐高一點*/
+    line-height: 4rem;              /*跟height一樣 讓+號 垂直置中*/
+    
+    font-size: 2rem;
+    background:#fff;
+    color:rgb(134, 109, 109);
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+  
+.faq .row .accordion-container .accordion .accordion-header h3{
+    display: inline;                /*讓元素(span跟這個h3)可在同一行呈現*/
+    color: #fff;
+    font-weight:550;
+    padding-left: .7rem;
+    font-size: 1.5rem;
+}
+
+/*body (text)*/
+.faq .row .accordion-container .accordion .accordion-body{
+    padding:1rem;
+    color:rgb(139, 130, 130);
+    box-shadow: .1rem .1rem .3rem rgba(0,0,0,.3);
+    font-size: 1.3rem;
+    display: none;                  /*剛開始不顯示出來*/
+}
+
+  
+/*footer ---------------------------------------------------------------------------*/
+
+.footer{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 3rem 4rem;
+    background: #d8c8c8;
+}
+  
+.footer h1{
+    color:rgb(122, 112, 112);
+    letter-spacing: .1rem;
+    font-weight: 500;
+} 
+  
+.footer .icons a{
+    color:rgb(167, 105, 105);
+    font-size: 1.8rem;
+    padding:0 1rem;   /*每個icon跟彼此之間的距離*/
+} 
+
+  
+
+
+
+/*rwd---------------------------------------------------------------------------------------*/
+/* media queries */
+@media (max-width:768px){
+    html{
+        font-size: 50%;     /*大家整體字稍微調小一點*/
+    }
+
+   .header .fa-bars{        /* menu按鈕顯示出來 */
+        display: block;
+    }
+    
+    .header .navbar{       
+        position: fixed;
+        top: -120%;         /* menulist原本不顯示 所以top設定為- 讓他隱藏起來*/
+        left: 0;
+        /* height: auto; */
+        width: 100%;
+        background-color: rgb(245, 243, 243);
+        z-index: 100;
+        /* border-top: .5rem solid #a79797; */
+    }
+
+    .header .navbar ul{
+        /* height: 100%;
+        width: 100%; */
+        flex-flow: column;  /* 預設是row 這邊要由上排到下 */
+    }
+
+    .header .navbar ul li{
+        margin: 1rem 0;     /* about, home...彼此上下的距離 */
+    }
+
+    .header .navbar ul li a{
+        color:#a79797;
+        font-size: 2.4rem;
+    }
+
+    .header .nav-toggle{    
+        /* 
+            這情況是 畫面縮小時按下menu鍵後 這時要讓menulist顯示出來 所以讓top:-120%變成top:0rem 
+            會變成<nav class="navbar nav-toggle">...原本是<nav class="navbar">...(寫上多了.nav-toggle這個class的css屬性 還是有.navbar的屬性) 
+        */
+        top: 0rem;
+    }
+
+    .header .fa-times{  
+        /* 
+            這情況是 畫面縮小時原本是個menu鍵 後來變成叉叉鍵
+            會變成<div class="fas fa-bars fa-times">...原本是<div class="fas fa-bars">... (寫上多了.fa-times這個class的css屬性 叉叉圖示會直接覆蓋掉原本的menu圖示) 
+        */
+        z-index: 1000;
+        color:rgb(172, 109, 109);
+        transform: rotate(180deg);
+    }
+
+
+
+
+    .home .banner{
+        font-size: 3.5rem;
+    }
+    
+    .home .slogan{
+        font-size: 1.7rem;
+    }
+
+
+
+
+    .about .row{
+        flex-direction: column-reverse; /*排的順序為column 但 是反的 為了讓圖片先在文字上面*/
+        padding:0 3rem;                 /*離左右的距離*/
+    }
+    
+    .about .row .image img{
+        width: 90vw;
+    }
+
+    .about .btn{
+        margin-bottom: 4rem;
+    }
+
+
+
+
+    .service .row{
+        flex-direction: column-reverse; /*排的順序為column 但 是反的 為了讓圖片先在文字上面。但排完之後會發現有些圖片在文字上方 有些在文字下方 那是因為原本是設計說讓有些圖片在左 有些在右*/
+        padding:0 3rem;                 /*離左右的距離*/
+    }
+
+    .service .row:nth-child(even){      /*為了解決有些圖片在文字上方 有些在下方的問題 (縮起來的時候想要讓圖片統一都在文字上方)*/
+        flex-direction: column;
+    }
+
+    .service .row .image img{
+        width: 90vw;
+    }
+
+
+
+    .contact .row{
+        /* margin-top: -40px; */
+        flex-direction: column;  /* 預設是row 這邊要由上排到下 */
+        padding: 0 7rem;         /*離左右邊的padding*/
+    }
+    
+    .contact .row .image img{
+        /* margin-top: 3rem; */
+        /* margin-bottom: 1rem;  */
+        height: 70vw;
+        width: 70vw;
+    }
+    
+    .contact .row .form-container{
+        width: 96%;
+        /* margin-top: -50px;
+        margin-right: -25px; */
+    }
+
+
+
+
+    .faq .row{
+        padding:0 1rem;   /*左右的padding*/
+        flex-flow: column;
+    } 
+
+    .faq .row .image img{
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        height: 70vw;
+        width: 70vw;
+    }
+    
+    .faq .row .accordion-container{
+        margin-bottom: 4rem;
+        width: 90%;
+    } 
+
+    
+        
+}
+
+
+@media (max-width:450px){ /*螢幕縮小成手機模式*/
+    /* .header{
+        width: 100%;
+    } */
+
+    .home .nut1 { /*螢幕縮小成手機模式時 轉動的圖案會導致畫面整個變形 所以先不顯示*/
+        display:none;
+    }
+
+    .home .nut2 {
+        display:none;
+    }
+
+    .footer{
+      flex-flow: column;
+      margin-top: 13px;
+    }
+    .footer h1{
+      text-align: center;
+    }
+    .footer .icons{
+      margin-top: 13px;
+    }
+}
